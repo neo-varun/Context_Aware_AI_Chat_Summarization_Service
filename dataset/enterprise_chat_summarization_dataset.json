@@ -1,0 +1,135 @@
+[
+  {
+    "chat_id": "group_001",
+    "domain": "project_release",
+    "participants": ["Ravi", "Anu", "Karthik", "Meera"],
+    "messages": [
+      {"sender": "Ravi", "timestamp": "2026-02-01T09:00:00", "message": "Good morning team."},
+      {"sender": "Anu", "timestamp": "2026-02-01T09:01:00", "message": "Morning."},
+      {"sender": "Ravi", "timestamp": "2026-02-01T09:02:00", "message": "We need to finalize release timeline."},
+      {"sender": "Karthik", "timestamp": "2026-02-01T09:03:00", "message": "Backend testing is 80 percent complete."},
+      {"sender": "Meera", "timestamp": "2026-02-01T09:04:00", "message": "Client wants delivery before March 1."},
+      {"sender": "Ravi", "timestamp": "2026-02-01T09:05:00", "message": "Can we commit to Feb 28?"},
+      {"sender": "Anu", "timestamp": "2026-02-01T09:06:00", "message": "Yes, if UI fixes are done by next week."},
+      {"sender": "Karthik", "timestamp": "2026-02-01T09:07:00", "message": "I'll complete testing by Feb 20."},
+      {"sender": "Ravi", "timestamp": "2026-02-01T09:08:00", "message": "Decision confirmed: Release on Feb 28."},
+      {"sender": "Meera", "timestamp": "2026-02-01T09:09:00", "message": "I will inform the client."}
+    ],
+    "ground_truth_summary": {
+      "key_topics": ["Release planning", "Testing status", "Client deadline"],
+      "decisions": ["Release scheduled for Feb 28"],
+      "important_mentions": ["Client requested delivery before March 1"],
+      "action_items": [
+        "Karthik to complete testing by Feb 20",
+        "Meera to inform client"
+      ]
+    }
+  },
+
+  {
+    "chat_id": "group_002",
+    "domain": "marketing_campaign",
+    "participants": ["Arjun", "Divya", "Sonal", "Imran"],
+    "messages": [
+      {"sender": "Arjun", "timestamp": "2026-02-02T10:00:00", "message": "We need strategy for summer campaign."},
+      {"sender": "Divya", "timestamp": "2026-02-02T10:01:00", "message": "Let's allocate 5 lakhs budget."},
+      {"sender": "Imran", "timestamp": "2026-02-02T10:02:00", "message": "Split between ads and influencers."},
+      {"sender": "Sonal", "timestamp": "2026-02-02T10:03:00", "message": "3 lakhs ads, 2 lakhs influencers."},
+      {"sender": "Arjun", "timestamp": "2026-02-02T10:04:00", "message": "Decision confirmed."},
+      {"sender": "Sonal", "timestamp": "2026-02-02T10:05:00", "message": "I'll contact agencies."},
+      {"sender": "Imran", "timestamp": "2026-02-02T10:06:00", "message": "I'll prepare ROI projections."}
+    ],
+    "ground_truth_summary": {
+      "key_topics": ["Summer campaign", "Budget allocation"],
+      "decisions": ["3 lakhs for ads and 2 lakhs for influencers"],
+      "important_mentions": ["Total budget 5 lakhs"],
+      "action_items": [
+        "Sonal to contact influencer agencies",
+        "Imran to prepare ROI projections"
+      ]
+    }
+  },
+
+  {
+    "chat_id": "group_003",
+    "domain": "hr_planning",
+    "participants": ["Neha", "Rahul", "Priya"],
+    "messages": [
+      {"sender": "Neha", "timestamp": "2026-02-03T11:00:00", "message": "We have 3 AI engineer candidates."},
+      {"sender": "Rahul", "timestamp": "2026-02-03T11:01:00", "message": "Schedule interviews Friday 2 PM?"},
+      {"sender": "Priya", "timestamp": "2026-02-03T11:02:00", "message": "Works for me."},
+      {"sender": "Neha", "timestamp": "2026-02-03T11:03:00", "message": "Decision confirmed: Friday 2 PM."},
+      {"sender": "Priya", "timestamp": "2026-02-03T11:04:00", "message": "I'll send invites."}
+    ],
+    "ground_truth_summary": {
+      "key_topics": ["AI hiring", "Interview scheduling"],
+      "decisions": ["Interviews set for Friday 2 PM"],
+      "important_mentions": ["Three candidates shortlisted"],
+      "action_items": ["Priya to send meeting invites"]
+    }
+  },
+
+  {
+    "chat_id": "group_004",
+    "domain": "startup_budget",
+    "participants": ["Vikram", "Leena", "Arav", "Sahil"],
+    "messages": [
+      {"sender": "Vikram", "timestamp": "2026-02-04T09:00:00", "message": "Marketing overspent 1.2 lakhs."},
+      {"sender": "Leena", "timestamp": "2026-02-04T09:01:00", "message": "Development saved 80k."},
+      {"sender": "Sahil", "timestamp": "2026-02-04T09:02:00", "message": "Reallocate 50k to infra?"},
+      {"sender": "Vikram", "timestamp": "2026-02-04T09:03:00", "message": "Approved."},
+      {"sender": "Leena", "timestamp": "2026-02-04T09:04:00", "message": "I'll update budget sheet."}
+    ],
+    "ground_truth_summary": {
+      "key_topics": ["Budget revision", "Fund reallocation"],
+      "decisions": ["50k moved to infrastructure"],
+      "important_mentions": ["Marketing overspent 1.2 lakhs"],
+      "action_items": ["Leena to update revised budget"]
+    }
+  },
+
+  {
+    "chat_id": "group_long_001",
+    "domain": "enterprise_project_discussion",
+    "participants": ["Ravi", "Anu", "Karthik", "Meera", "Sanjay"],
+    "messages": [
+      {"sender": "Ravi", "timestamp": "2026-02-05T09:00:00", "message": "Discuss Phase 2 roadmap."},
+      {"sender": "Anu", "timestamp": "2026-02-05T09:01:00", "message": "Analytics dashboard requested."},
+      {"sender": "Meera", "timestamp": "2026-02-05T09:02:00", "message": "Client also asked for multilingual support."},
+      {"sender": "Sanjay", "timestamp": "2026-02-05T09:03:00", "message": "Budget limit is 8 lakhs."},
+      {"sender": "Ravi", "timestamp": "2026-02-05T09:04:00", "message": "Include analytics in Phase 2."},
+      {"sender": "Karthik", "timestamp": "2026-02-05T09:05:00", "message": "Agree."},
+      {"sender": "Ravi", "timestamp": "2026-02-05T09:06:00", "message": "Decision: Analytics in Phase 2."},
+      {"sender": "Anu", "timestamp": "2026-02-05T09:07:00", "message": "Language support Phase 3."},
+      {"sender": "Ravi", "timestamp": "2026-02-05T09:08:00", "message": "Confirmed."},
+      {"sender": "Sanjay", "timestamp": "2026-02-05T09:09:00", "message": "Timeline 5 weeks."},
+      {"sender": "Meera", "timestamp": "2026-02-05T09:10:00", "message": "Client initially wanted 4 weeks."},
+      {"sender": "Ravi", "timestamp": "2026-02-05T09:11:00", "message": "We finalize 5 weeks."},
+      {"sender": "Anu", "timestamp": "2026-02-05T09:12:00", "message": "I'll prepare breakdown."},
+      {"sender": "Karthik", "timestamp": "2026-02-05T09:13:00", "message": "I'll estimate DB migration."},
+      {"sender": "Meera", "timestamp": "2026-02-05T09:14:00", "message": "I'll inform client."}
+    ],
+    "ground_truth_summary": {
+      "key_topics": [
+        "Phase 2 roadmap",
+        "Analytics dashboard",
+        "Language support",
+        "Timeline discussion"
+      ],
+      "decisions": [
+        "Analytics included in Phase 2",
+        "Language support postponed to Phase 3",
+        "Timeline fixed at 5 weeks"
+      ],
+      "important_mentions": [
+        "Budget limit 8 lakhs",
+        "Client requested 4 weeks initially"
+      ],
+      "action_items": [
+        "Anu to prepare feature breakdown",
+        "Karthik to estimate database migration",
+        "Meera to inform client"
+      ]
+    }
+  }
+]
