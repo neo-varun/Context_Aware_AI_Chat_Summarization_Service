@@ -59,7 +59,7 @@
   },
 
   {
-    "chat_id": "group_long_001",
+    "chat_id": "group_005",
     "domain": "enterprise_project_discussion",
     "participants": ["Ravi", "Anu", "Karthik", "Meera", "Sanjay"],
     "messages": [

@@ -1,5 +1,4 @@
 from typing import List, Dict
-from summarizer import call_local_llm
 
 
 def sliding_window_chunking(
@@ -12,6 +11,10 @@ def sliding_window_chunking(
     while start < len(messages):
         end = start + chunk_size
         chunk = messages[start:end]
+
+        if not chunk:
+            break
+
         chunks.append(chunk)
 
         start = end - overlap
@@ -30,37 +33,15 @@ def build_context(chunk: List[Dict]) -> str:
     return "\n".join(f"{msg['sender']}: {msg['message']}" for msg in chunk)
 
 
-def join_summaries(chunk_summaries: List[str]) -> str:
-    combined = "\n\n".join(chunk_summaries)
-
-    prompt = f"""
-    Combine the following partial summaries into one coherent summary.
-    Remove duplicates.
-    Merge similar action items.
-
-    {combined}
-    """
-
-    return call_local_llm(prompt)
-
-
-def process_chat(chat_data):
+def build_chat_chunks(chat_data: Dict) -> List[str]:
 
     messages = chat_data["messages"]
 
     if len(messages) <= 10:
-        context = build_context(messages)
-        return call_local_llm(context)
+        return [build_context(messages)]
 
     chunks = sliding_window_chunking(messages, chunk_size=8, overlap=3)
 
-    chunk_summaries = []
+    text_chunks = [build_context(chunk) for chunk in chunks]
 
-    for chunk in chunks:
-        context = build_context(chunk)
-        summary = call_local_llm(context)
-        chunk_summaries.append(summary)
-
-    final_summary = join_summaries(chunk_summaries)
-
-    return final_summary
+    return text_chunks
