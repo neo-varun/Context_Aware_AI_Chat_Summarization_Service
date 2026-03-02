@@ -21,6 +21,7 @@ def call_local_llm(user_content: str) -> str:
                     "content": user_content,
                 },
             ],
+            format='json'
         )
 
         print(response.message.content)

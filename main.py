@@ -1,47 +1,79 @@
 import json
-from typing import List
+import time
+from datetime import datetime,UTC
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+from typing import Dict
 from chunking import build_chat_chunks
 from summarizer import call_local_llm
+from database import init_db, SessionLocal, ChatSummary
 
-with open("dataset\chat_messages.json", "r", encoding="utf-8") as f:
+init_db()
+
+app=FastAPI()
+
+class ChatRequest(BaseModel):
+    chat_id: str
+
+with open("dataset/chat_messages.json", "r", encoding="utf-8") as f:
     chats = json.load(f)
 
-
-def process_chats(chats: List[dict]) -> List[dict]:
-
-    results = []
-
+def get_chat_By_id(chat_id: str) -> Dict:
     for chat in chats:
-        chat_id = chat["chat_id"]
+        if chat['chat_id']==chat_id:
+            return chat
+    return None
 
-        print(f"\nProcessing chat: {chat_id}")
+@app.post('/generate_summary')
+def generate_summary(request: ChatRequest):
 
-        chat_chunks = build_chat_chunks(chat)
+    start_time=time.time()
 
-        chunk_summaries = []
+    db=SessionLocal()
 
-        for chunk in chat_chunks:
-            chunk_summary = call_local_llm(chunk)
-            chunk_summaries.append(chunk_summary)
+    chat=get_chat_By_id(request.chat_id)
 
-        combined_text = json.dumps(chunk_summaries, indent=2)
+    if not chat:
+        raise HTTPException(status_code=404, detail='Chat not found')
 
-        final_summary = call_local_llm(
-            f"""
-            Combine the following summaries into one final summary.
-            Remove duplicates.
-            Merge similar action items.
-            Return strictly in JSON format.
+    chat_chunks = build_chat_chunks(chat)
 
-            {combined_text}
-        """
-        )
+    chunk_summaries = []
 
-        results.append({"chat_id": chat_id, "summary": final_summary})
+    for chunk in chat_chunks:
+        chunk_summary = call_local_llm(chunk)
+        chunk_summaries.append(chunk_summary)
 
-    return results
+    combined_text = json.dumps(chunk_summaries, indent=2)
 
+    final_summary = call_local_llm(
+        f"""
+        Combine the following summaries into one final summary.
+        Remove duplicates.
+        Merge similar action items.
+        Return strictly in JSON format.
 
-summaries = process_chats(chats)
+        {combined_text}
+    """
+    )
 
-print(json.dumps(summaries, indent=2))
+    processing_time=round(time.time()-start_time,2)
+
+    db_entry=ChatSummary(
+        chat_id=request.chat_id,
+        raw_chat=chat,
+        generated_summary=final_summary,
+        token_usage=0,
+        processing_time=processing_time,
+        created_at=datetime.now(UTC)
+    )
+
+    db.add(db_entry)
+    db.commit()
+    db.close()
+
+    return {
+        'chat_id': request.chat_id,
+        'summary': final_summary,
+        'processing_time_seconds':processing_time
+    }
