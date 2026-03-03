@@ -21,12 +21,19 @@ def call_local_llm(user_content: str) -> str:
                     "content": user_content,
                 },
             ],
-            format='json'
+            format="json",
+        )
+
+        total_tokens = response.get("prompt_eval_count", 0) + response.get(
+            "eval_count", 0
         )
 
         print(response.message.content)
 
-        return safe_json_parse(response.message.content)
+        return {
+            "summary": safe_json_parse(response.message.content),
+            "tokens": total_tokens,
+        }
 
     except Exception as e:
         return f"LLM call failed: {e}"
