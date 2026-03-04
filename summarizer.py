@@ -30,10 +30,10 @@ def call_local_llm(user_content: str) -> str:
 
         print(response.message.content)
 
-        return {
-            "summary": safe_json_parse(response.message.content),
-            "tokens": total_tokens,
-        }
+        parsed = safe_json_parse(response.message.content)
+        tokens = total_tokens
+
+        return {"summary": parsed, "tokens": tokens}
 
     except Exception as e:
         return f"LLM call failed: {e}"

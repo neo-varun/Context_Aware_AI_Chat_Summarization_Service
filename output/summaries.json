@@ -1,0 +1,143 @@
+[
+  {
+    "chat_id": "group_001",
+    "summary": {
+      "key_topics": [
+        "Finalize release timeline",
+        "Backend testing progress",
+        "Client requirements and deadline"
+      ],
+      "decisions": [
+        "Release on Feb 28"
+      ],
+      "important_mentions": [
+        "80 percent backend testing complete",
+        "Delivery before March 1",
+        "UI fixes by next week",
+        "Feb 20: backend testing completion",
+        "Feb 28: release deadline"
+      ],
+      "action_items": [
+        {
+          "task": "Complete UI and backend testing",
+          "responsible_person": "Karthik"
+        },
+        {
+          "task": "Inform the client about release deadline",
+          "responsible_person": "Meera"
+        }
+      ]
+    },
+    "total_tokens": 966,
+    "processing_time": 74.82
+  },
+  {
+    "chat_id": "group_002",
+    "summary": {
+      "key_topics": [
+        "summer campaign",
+        "budget allocation"
+      ],
+      "decisions": [
+        "5 lakhs budget for summer campaign"
+      ],
+      "important_mentions": [],
+      "action_items": [
+        {
+          "task": "contact agencies",
+          "responsible_person": "Sonal"
+        },
+        {
+          "task": "prepare ROI projections and contact agencies",
+          "responsible_person": "Imran Sonal"
+        }
+      ]
+    },
+    "total_tokens": 696,
+    "processing_time": 35.56
+  },
+  {
+    "chat_id": "group_003",
+    "summary": {
+      "key_topics": [
+        "Interviews",
+        "Scheduling"
+      ],
+      "decisions": [
+        "Friday 2 PM"
+      ],
+      "important_mentions": [],
+      "action_items": [
+        {
+          "task": "Send invites",
+          "responsible_person": "Priya"
+        }
+      ]
+    },
+    "total_tokens": 616,
+    "processing_time": 23.97
+  },
+  {
+    "chat_id": "group_004",
+    "summary": {
+      "key_topics": [
+        "rebudgeting",
+        "marketing expenses"
+      ],
+      "decisions": [
+        "Reallocate 50k to infra"
+      ],
+      "important_mentions": [],
+      "action_items": [
+        {
+          "task": "Update budget sheet",
+          "responsible_person": "Leena"
+        }
+      ]
+    },
+    "total_tokens": 654,
+    "processing_time": 27.84
+  },
+  {
+    "chat_id": "group_005",
+    "summary": {
+      "key_topics": [
+        "Phase 2 roadmap",
+        "Analytics dashboard",
+        "Multilingual support",
+        "Analytics in Phase 2",
+        "Language support Phase 3",
+        "Client requirements",
+        "Project timeline"
+      ],
+      "decisions": [
+        "Decision: Analytics in Phase 2",
+        "Timeline finalized as 5 weeks",
+        "The project will be finalized in 5 weeks."
+      ],
+      "important_mentions": [
+        "Budget limit is 8 lakhs",
+        "Client also asked for multilingual support",
+        "4 weeks (client's initial requirement)",
+        "5 weeks (finalized timeline)",
+        "4 weeks (initial client request)"
+      ],
+      "action_items": [
+        {
+          "task": "Prepare breakdown",
+          "responsible_person": "Anu"
+        },
+        {
+          "task": "Estimate DB migration",
+          "responsible": "Karthik"
+        },
+        {
+          "task": "Inform client",
+          "responsible": "Meera"
+        }
+      ]
+    },
+    "total_tokens": 1453,
+    "processing_time": 99.7
+  }
+]

@@ -81,7 +81,7 @@ def generate_summary(request: ChatRequest):
     existing.append(
         {
             "chat_id": request.chat_id,
-            "summary": final_summary,
+            "summary": final_summary["summary"],
             "total_tokens": total_tokens,
             "processing_time": processing_time,
         }
@@ -105,7 +105,7 @@ def generate_summary(request: ChatRequest):
 
     return {
         "chat_id": request.chat_id,
-        "summary": final_summary,
+        "summary": final_summary["summary"],
         "token_usage": total_tokens,
         "processing_time_seconds": processing_time,
     }

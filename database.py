@@ -3,6 +3,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime, UTC
 
+# Create a database named chat_summarizer in PostgreSQL
+
 DATABASE_URL = "postgresql://postgres:2003@localhost:5432/chat_summarizer"
 
 engine = create_engine(DATABASE_URL)
